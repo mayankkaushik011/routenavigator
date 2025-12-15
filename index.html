@@ -3,25 +3,62 @@
 <head>
   <title>Mappls Directions Project</title>
 
-  <!-- Mappls SDK -->
-  <script src="https://apis.mappls.com/advancedmaps/api/tcyflyepflcfjoylfqrigemvzxfanhmdcmuq/map_sdk?v=3.0"></script>
-  <script src="https://apis.mappls.com/advancedmaps/api/tcyflyepflcfjoylfqrigemvzxfanhmdcmuq/mappls-gl-directions.js"></script>
 
-  <style  src="style.css">  </style>
+  <script src="https://apis.mappls.com/advancedmaps/v1/tcyflyepflcfjoylfqrigemvzxfanhmdcmuq/map_sdk.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 10px;
+    }
+
+    #controls {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    #map {
+      width: 100%;
+      height: 80vh;
+    }
+
+    input, button {
+      padding: 8px;
+      margin: 5px;
+    }
+  </style>
 </head>
 
 <body>
 
 <h2>🚗 Route Navigation using Mappls API</h2>
 
-<input type="text" id="start" placeholder="Start Location">
-<input type="text" id="end" placeholder="End Location">
-<button id="routeBtn">Get Route</button>
+<div id="controls">
+  <input type="text" id="start" placeholder="Start Location">
+  <input type="text" id="end" placeholder="End Location">
+  <button onclick="loadMap()">Load Map</button>
+</div>
 
 <div id="map"></div>
 
-<!-- IMPORTANT: script at END -->
-<script src="script.js"></script>
+<script>
+function loadMap() {
+    if (typeof mappls === "undefined") {
+        alert("Mappls SDK not loaded");
+        return;
+    }
+
+    var map = new mappls.Map("map", {
+        center: [77.2090, 28.6139], 
+        zoom: 12
+    });
+}
+</script>
 
 </body>
 </html>

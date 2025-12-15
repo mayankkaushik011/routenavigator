@@ -6,13 +6,13 @@ window.onload = function () {
     "tcyflyepflcfjoylfqrigemvzxfanhmdcmuq",
     function () {
 
-      //  Create map
+    
       var map = new mappls.Map("map", {
         center: [77.2310, 28.6129],
         zoom: 10
       });
 
-      //  Car marker
+      
       var carMarker = new mappls.Marker({
         map: map,
         position: { lat: 28.6129, lng: 77.2310 },
@@ -23,7 +23,7 @@ window.onload = function () {
       var routeCoords = [];
       var index = 0;
 
-      //  Button click handler
+      
       document.getElementById("routeBtn").onclick = function () {
         var start = document.getElementById("start").value;
         var end = document.getElementById("end").value;
@@ -48,7 +48,7 @@ window.onload = function () {
         });
       };
 
-      //  Animate car
+      
       function animateCar() {
         if (index < routeCoords.length) {
           var lng = routeCoords[index][0];
